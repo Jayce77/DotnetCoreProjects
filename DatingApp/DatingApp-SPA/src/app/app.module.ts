@@ -33,8 +33,8 @@ import { appRoutes } from './routes';
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
-      BsDropdownModule.forRoot(appRoutes),
-      RouterModule
+      BsDropdownModule.forRoot(),
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService,
