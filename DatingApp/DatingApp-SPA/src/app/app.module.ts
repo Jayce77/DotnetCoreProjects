@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { AlertifyService } from './_services/alertify.service';
 import { MemberListComponent } from './member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
+import { appRoutes } from './routes';
 
 @NgModule({
    declarations: [
@@ -31,7 +33,8 @@ import { MessagesComponent } from './messages/messages.component';
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
-      BsDropdownModule.forRoot()
+      BsDropdownModule.forRoot(appRoutes),
+      RouterModule
    ],
    providers: [
       AuthService,
