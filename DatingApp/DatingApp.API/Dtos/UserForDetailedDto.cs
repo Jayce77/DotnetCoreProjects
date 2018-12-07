@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using DatingApp.API.Models;
+
 namespace DatingApp.API.Dtos
 {
     public class UserForDetailedDto
@@ -6,7 +10,7 @@ namespace DatingApp.API.Dtos
         public string UserName { get; set; }
         public string Gender { get; set; }
         public int Age { get; set; }
-        public string KnowAS { get; set; }
+        public string KnownAs { get; set; }
         public DateTime Create { get; set; }
         public DateTime LastActive { get; set; }
         public string Introduction { get; set; }
