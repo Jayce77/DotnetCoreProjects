@@ -2,28 +2,28 @@
   <div class="row">
     <div class="col-sm4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{user?.photoUrl}}" alt="{{user?.knownAs}}">
+        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}" alt="{{user.knownAs}}">
         <div class="card-body">
           <div>
             <strong>Location:</strong>
-            <p>{{user?.city}}, {{user?.country}}</p>
+            <p>{{user.city}}, {{user.country}}</p>
           </div>
           <div>
             <strong>
               Age:
-              <p>{{user?.age}}</p>
+              <p>{{user.age}}</p>
             </strong>
           </div>
           <div>
             <strong>
               Last Active:
-              <p>{{user?.lastActive}}</p>
+              <p>{{user.lastActive}}</p>
             </strong>
           </div>
           <div>
             <strong>
               Member Since:
-              <p>{{user?.created}}</p>
+              <p>{{user.created}}</p>
             </strong>
           </div>
         </div>
@@ -38,15 +38,15 @@
     <div class="col-sm-8">
       <div class="tab-pannel">
         <tabset class="member-tabset">
-          <tab heading="About {{user?.knownAs}}">
+          <tab heading="About {{user.knownAs}}">
             <h4>Description</h4>
-            <p>{{user?.introduction}}</p>
+            <p>{{user.introduction}}</p>
             <h4>Looking for</h4>
-            <p>{{user?.lookingFor}}</p>
+            <p>{{user.lookingFor}}</p>
           </tab>
           <tab heading="Interests">
             <h4>Interests</h4>
-            <p>{{user?.interests}}</p>
+            <p>{{user.interests}}</p>
           </tab>
           <tab heading="Photos">
             <p>Photos will go here</p>
