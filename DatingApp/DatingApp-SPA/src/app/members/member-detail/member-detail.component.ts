@@ -44,6 +44,5 @@ export class MemberDetailComponent implements OnInit {
         description: this.user.photos[i].description,
       };
     });
-    console.log(this.galleryImages);
   }
 }
