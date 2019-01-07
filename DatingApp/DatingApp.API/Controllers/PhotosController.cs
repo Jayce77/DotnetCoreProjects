@@ -15,7 +15,8 @@ using Microsoft.Extensions.Options;
 namespace DatingApp.API.Controllers
 {
     [Authorize]
-    [Route("api/users/{userId/photos")]
+    [Route("api/users/{userId}/photos")]
+    [ApiController]
     public class PhotosController : ControllerBase
     {
         private readonly IDatingRepository _repo;
@@ -50,7 +51,7 @@ namespace DatingApp.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPhotoForUser(int userId, PhotoForCreationDto photoForCreationDto)
+        public async Task<IActionResult> AddPhotoForUser(int userId, [FromForm]PhotoForCreationDto photoForCreationDto)
         {
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
@@ -77,7 +78,7 @@ namespace DatingApp.API.Controllers
             photoForCreationDto.Url =  uploadResult.Uri.ToString();
             photoForCreationDto.PublicId = uploadResult.PublicId;
 
-            var photo = Mapper.Map<Photo>(photoForCreationDto);
+            var photo = _mapper.Map<Photo>(photoForCreationDto);
 
             if (!userFromRepo.Photos.Any(u => u.IsMain))
                 photo.IsMain = true;
