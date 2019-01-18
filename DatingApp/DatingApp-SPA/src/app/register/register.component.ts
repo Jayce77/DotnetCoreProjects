@@ -17,16 +17,24 @@ export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
-    this.registerForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
-      password: new FormControl(
-        '', [
-          Validators.required, 
-          Validators.minLength(4), 
-          Validators.maxLength(8)
-      ]),
-      confirmPassword: new FormControl('', Validators.required)
-    });
+    this.registerForm = 
+      new FormGroup({
+        userName: new FormControl('', Validators.required),
+        password: new FormControl(
+          '', [
+            Validators.required, 
+            Validators.minLength(4), 
+            Validators.maxLength(8)
+        ]),
+        confirmPassword: new FormControl('', Validators.required)
+        },
+        this.passwordMatchValidator);
+  }
+
+  passwordMatchValidator(g: FormGroup) {
+    return g.get('password').value === g.get('confirmPassword').value
+      ? null
+      : { 'missmatch': true };
   }
 
   register() {
