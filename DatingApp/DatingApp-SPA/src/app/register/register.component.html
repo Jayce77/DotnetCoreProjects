@@ -3,26 +3,61 @@
   <hr>
   <div class="form-group">
     <input 
-      type="text" 
+      type="text"
+      [ngClass]="{'is-invalid': registerForm.get('userName').errors
+        && registerForm.get('userName').touched}"
       class="form-control" 
       formControlName="userName" 
       placeholder="User name">
+      <div class="invalid-feedback">Please choose a username</div>
   </div>
 
   <div class="form-group">
     <input 
-      type="password" 
+      type="password"
+      [ngClass]="{'is-invalid': registerForm.get('password').errors
+        && registerForm.get('password').touched}"
       class="form-control" 
       formControlName="password" 
       placeholder="password">
+      <div class="invalid-feedback"
+        *ngIf="registerForm.get('password').hasError('required')
+          && registerForm.get('password').touched">
+          Password is required
+      </div>
+      <div class="invalid-feedback"
+        *ngIf="registerForm.get('password').hasError('minlength')
+          && registerForm.get('password').touched">
+          Password must be at least 4 characters
+      </div>
+      <div class="invalid-feedback"
+        *ngIf="registerForm.get('password').hasError('maxlength')
+          && registerForm.get('password').touched">
+          Password cannot exceed 8 characters
+      </div>
+
   </div>
 
   <div class="form-group">
     <input
       type="password"
+      [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors
+        && registerForm.get('confirmPassword').touched
+        || registerForm.get('confirmPassword').touched
+        && registerForm.hasError('mismatch')}"
       class="form-control"
       formControlName="confirmPassword"
       placeholder="Confirm Password">
+      <div class="invalid-feedback"
+        *ngIf="registerForm.get('confirmPassword').hasError('required')
+          && registerForm.get('confirmPassword').touched">
+          Password is required
+      </div>
+      <div class="invalid-feedback"
+        *ngIf="registerForm.hasError('mismatch')
+          && registerForm.get('confirmPassword').touched">
+          Passwords must mactch
+      </div>
     </div>
 
   <div class="form-group text-center">
