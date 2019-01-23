@@ -27,13 +27,13 @@
             <div>
               <strong>
                 Last Active:
-                <p>{{user.lastActive}}</p>
+                <p>{{user.lastActive | timeAgo}}</p>
               </strong>
             </div>
             <div>
               <strong>
                 Member Since:
-                <p>{{user.created}}</p>
+                <p>{{user.created | date}}</p>
               </strong>
             </div>
           </div>
