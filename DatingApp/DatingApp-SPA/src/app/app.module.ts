@@ -31,6 +31,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes-guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { ListsResolver } from './_resolvers/lists.resolvers';
 
 export const tokenGetter = () => localStorage.getItem('token');
 
@@ -77,6 +78,7 @@ export const tokenGetter = () => localStorage.getItem('token');
       AlertifyService,
       AuthGuard,
       UserService,
+      ListsResolver,
       MemberDetailResolver,
       MemberListResolver,
       MemberEditResolver,
