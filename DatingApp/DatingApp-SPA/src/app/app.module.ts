@@ -33,6 +33,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes-guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { ListsResolver } from './_resolvers/lists.resolvers';
 import { MessagesResolver } from './_resolvers/messages-resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 export const tokenGetter = () => localStorage.getItem('token');
 
@@ -49,7 +50,8 @@ export const tokenGetter = () => localStorage.getItem('token');
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
-      TimeAgoPipe
+      TimeAgoPipe,
+      MemberMessagesComponent
    ],
    imports: [
       BrowserModule,
