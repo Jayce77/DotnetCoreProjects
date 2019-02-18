@@ -100,4 +100,8 @@ export class UserService {
   sendMessage(id: number, message: Message) {
     return this.http.post(this.baseUrl + 'users/' + id + '/messages', message);
   }
+
+  deleteMessage(id: number, userId: null) {
+    return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + id, {});
+  }
 }
