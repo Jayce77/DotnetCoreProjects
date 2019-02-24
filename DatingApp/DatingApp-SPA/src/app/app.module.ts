@@ -35,7 +35,9 @@ import { ListsResolver } from './_resolvers/lists.resolvers';
 import { MessagesResolver } from './_resolvers/messages-resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
-export const tokenGetter = () => localStorage.getItem('token');
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
 
 @NgModule({
    declarations: [
